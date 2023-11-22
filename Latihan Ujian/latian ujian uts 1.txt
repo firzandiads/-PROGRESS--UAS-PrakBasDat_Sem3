@@ -1,0 +1,87 @@
+LATIHAN UTS
+
+1.Membuat database baru
+create database Belajars;
+
+
+2.Menampilkan database
+show databases;
+
+
+3.Membuka databases
+use belajars;
+
+
+4.Membuat tabel serta membuat primary key
+create table buku(kode_buku Char(5) Primary key, judul Char(30) not null,
+
+primaty key punya 2 sifat, not null sama unique
+
+null=boleh kosong
+
+5.
+desc buku;
+
+
+6.
+create table buku2(kode_buku Char(5), judul Char(30) not null, pengarang char(30) not null, harga int, jumlah int, primary key(kode_buku,pengarang));
+
+
+7.
+desc buku2;
+
+
+8.
+alter table buku change harga harga int not null;
+
+"harga harga" kenapa 2? karena itu tabel baru dan tabel lama
+
+tipe data: integer
+
+
+9.
+alter table buku change harga price int;
+
+
+10.Mengganti nama tabel buku2 menjadi book
+alter table buku2 rename to book;
+
+
+11.Menampilkan tabel
+show tables;
+
+
+12.SOAL=COBA TAMBAHKAN DATA ISSN PADA TABEL BUKU DIMANA LETAKNYA SETELAH JUDUL UNTUK TIPE DATA MENGGUNAKAN CHARACTER DAN BOLEH NULL
+alter table book add issn char(10) after judul;
+
+
+13.
+desc book;
+
+
+14.Memindahkan harga di paling atas
+alter table book change harga harga int first;
+
+
+15.Cara agar unique
+alter table book add constraint issn unique(issn);
+
+dan
+alter table book add constraint issn_unik unique(issn);
+
+
+16.Menghapus primary key
+alter table book drop index issn;
+
+
+17.
+
+
+
+
+
+
+
+
+
+

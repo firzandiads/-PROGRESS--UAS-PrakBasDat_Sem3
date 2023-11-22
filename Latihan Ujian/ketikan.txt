@@ -1,0 +1,89 @@
+mysql -u root
+
+show databases;
+
+show tables;
+
+use mysql
+
+select * from user;
+
+desc user;
+
+select host, user, password, select_priv,
+update_priv, insert_priv
+from user;
+
+select host, user, password, select_priv, create_priv
+from user;
+
+(UNTUK MEMBUAT USER)
+grant insert, select
+on *.*
+to 'bapak'@'localhost'
+identified by '12345';
+
+select host, user, password, select_priv, create_priv, insert_priv
+from user;
+
+show grants for 'bapak'@'localhost';
+
+create database latihan_2
+drop database latihan_2
+
+(EXIT)
+\q
+
+(MASUK KE USER)
+mysql -u bapak -p
+
+
+(Untuk menambahkan sebuah database ke user, perlu masuk ke root terlebih dahulu, lalu...)
+grant create
+    -> on *.*
+    -> to 'bapak'@'localhost';
+(Kemudian masuk ke user dan...)
+create database praktikum;
+
+
+(MEMBUAT USER 'ibu')
+mysql -u root
+
+grant create, insert, select, update
+    -> on praktikum.*
+    -> to 'ibu'@'localhost'
+    -> identified by '12345';
+(apabila ingin membuat selain 'praktikum', lakukan hal yang sama di user root)
+(kemudian masuk ke ibu)
+show databases;
+
+mysql -u ibu -p praktikum
+
+(untuk mengubah database)
+use praktikum
+
+(membuat table di praktikum)
+create table siswa (nis char(5), nama varchar(30), kelas char(2));
+
+(melihat tabel)
+show tables;
+
+(melihat deskripsi siswa)
+desc siswa;
+
+(memasukan nilai ke 'siswa')
+insert into siswa values
+    -> ('1','Eka','1A');
+
+insert into siswa values
+    -> ('2','Najwa','1B'),
+    -> ('3','Amir','1C'),
+    -> ('4','Niki','1D');
+
+(melihat tabel siswa) 
+select * from siswa;
+
+update siswa set nis='12300';
+
+update siswa set nis='1'
+    -> where nama='Eka';
